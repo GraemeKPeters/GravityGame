@@ -13,7 +13,7 @@ public class GravityGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");//test for dev branch
+		img = new Texture("badlogic.jpg");//test for dev branchdv
 	}
 
 	@Override
