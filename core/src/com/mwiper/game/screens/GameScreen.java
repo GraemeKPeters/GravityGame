@@ -71,7 +71,8 @@ public class GameScreen implements Screen {
 
     public void handleInput(float dt){
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            player.applyAngularImpulse(2f,  true);
+            player.setLinearVelocity(10f, 20f);
+
         }
 
     }

@@ -29,7 +29,7 @@ public class WorldUtils {
     public static Body createPlayer(World world){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        //position.set (vector2)
+        bodyDef.position.set(50f, 50f);
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(5f,5f);
         Body body = world.createBody(bodyDef);
@@ -37,5 +37,8 @@ public class WorldUtils {
         body.resetMassData();
         shape.dispose();
         return body;
+    }
+
+    public void movePlayer(Body player){
     }
 }
