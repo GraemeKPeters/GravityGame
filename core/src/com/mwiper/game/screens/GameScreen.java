@@ -22,6 +22,7 @@ public class GameScreen implements Screen {
 
     private World world;
     private Body ground;
+    private Body player;
     private Box2DDebugRenderer renderer;
 
     private GravityGame game;
@@ -34,13 +35,14 @@ public class GameScreen implements Screen {
 
         world = WorldUtils.createWorld();
         ground = WorldUtils.createGround(world);
+        player = WorldUtils.createPlayer(world);
 
         renderer = new Box2DDebugRenderer();
 
         setupCamera();
     }
     private void setupCamera(){
-        gameCamera = new OrthographicCamera(20, 13);
+        gameCamera = new OrthographicCamera(500, 500);
         gameCamera.position.set(gameCamera.viewportWidth / 2, gameCamera.viewportHeight / 2, 0f);
         gameCamera.update();
     }
@@ -56,8 +58,9 @@ public class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+//        gamePort.update(width, height);
     }
+
 
     @Override
     public void show() {
@@ -81,6 +84,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        //cleanup
     }
 }

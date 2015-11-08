@@ -18,14 +18,24 @@ public class WorldUtils {
     public static Body createGround(World world){
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(new Vector2(Constants.GROUND_X, Constants.GROUND_Y));
-
         Body body = world.createBody(bodyDef);
-
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(Constants.GROUND_WIDTH /2, Constants.GROUND_DENSITY /2);
+        shape.setAsBox(Constants.GROUND_WIDTH /2, Constants.GROUND_HEIGHT/2);
         body.createFixture(shape, Constants.GROUND_DENSITY);
         shape.dispose();
         return body;
+    }
 
+    public static Body createPlayer(World world){
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        //position.set (vector2)
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(5f,5f);
+        Body body = world.createBody(bodyDef);
+        body.createFixture(shape, 0.5f);
+        body.resetMassData();
+        shape.dispose();
+        return body;
     }
 }
