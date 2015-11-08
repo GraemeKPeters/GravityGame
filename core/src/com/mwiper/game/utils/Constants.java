@@ -17,4 +17,6 @@ public class Constants {
     public static final float GROUND_HEIGHT = 50f;
     public static final float GROUND_DENSITY = 0f;
 
+    public static final Vector2 PLAYER_JUMPING_IMPLUSE = new Vector2(0f,13f);
+
 }
