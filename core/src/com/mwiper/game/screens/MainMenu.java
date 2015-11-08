@@ -19,16 +19,17 @@ import com.mwiper.game.utils.Constants;
  * Created by Matt on 11/4/2015.
  */
 public class MainMenu implements Screen{
-    Game game;
+    GravityGame game;
     private Viewport viewport;
     private Stage stage;
 
-    public MainMenu(Game game){
+    public MainMenu(GravityGame game){
+
         this.game = game;
         viewport = new FitViewport(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, ((GravityGame) game).batch);
 
-        Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
+        Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.CYAN);
 
         Table table = new Table();
         table.center();
@@ -46,7 +47,7 @@ public class MainMenu implements Screen{
     @Override
     public void render(float delta) {
         if(Gdx.input.justTouched()) {
-
+            game.setScreen(new GameScreen(game));
         }
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -80,6 +81,6 @@ public class MainMenu implements Screen{
 
     @Override
     public void dispose() {
-
+        stage.dispose();
     }
 }
